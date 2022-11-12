@@ -42,3 +42,11 @@ tasks {
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
 }
+
+dependencies {
+    implementation("cn.hutool:hutool-http:5.8.9")
+    implementation("cn.hutool:hutool-crypto:5.8.9")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.14.0")
+    compileOnly("org.projectlombok:lombok:1.18.24")
+    annotationProcessor("org.projectlombok:lombok:1.18.24")
+}

@@ -33,12 +33,28 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
+        <applicationConfigurable
+                parentId="tools"
+                instance="fun.lz.lz_laravel_plugin.translator.TranslatorSettingConfiguration"
+                id="fun.lz.lz_laravel_plugin.translator.TranslatorSettingConfiguration"
+                displayName="Translator"
+        />
+        <applicationService serviceImplementation="fun.lz.lz_laravel_plugin.translator.TranslatorSetting"/>
+        <projectService serviceImplementation="fun.lz.lz_laravel_plugin.translator.TranslatorCache"/>
+        <toolWindow
+                id="Translator"
+                factoryClass="fun.lz.lz_laravel_plugin.translator.TranslatorToolsWindow"
+                anchor="right"
+        />
+        <notificationGroup id="Translator" displayType="BALLOON"/>
     </extensions>
 
     <actions>
         <action class="fun.lz.lz_laravel_plugin.HelloWorldAction" description="Hello world">
             <keyboard-shortcut first-keystroke="control alt shift 9" keymap="$default"/>
+        </action>
+        <action class="fun.lz.lz_laravel_plugin.translator.TranslatorAction" description="Translate" text="Translate">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
         </action>
     </actions>
 </idea-plugin>
