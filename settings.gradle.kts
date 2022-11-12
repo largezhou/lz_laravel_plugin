@@ -1,0 +1,1 @@
+rootProject.name = "lz_laravel_plugin"
